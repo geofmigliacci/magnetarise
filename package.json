@@ -1,0 +1,16 @@
+{
+  "name": "magnetarise",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nrwl/cli": "14.3.6",
+    "@nrwl/js": "14.3.6",
+    "@nrwl/workspace": "14.3.6",
+    "nx": "14.3.6",
+    "prettier": "^2.6.2",
+    "typescript": "~4.7.2"
+  }
+}

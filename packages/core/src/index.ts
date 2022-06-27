@@ -1,0 +1,1 @@
+export * from './magnetarise-application';

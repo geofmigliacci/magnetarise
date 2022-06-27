@@ -1,0 +1,24 @@
+{
+  "name": "@magnetarise/core",
+  "version": "0.0.1",
+  "description": "Magnetarise is a micro-framework made for FiveM heavily influenced by Nest.",
+  "homepage": "https://github.com/geofmigliacci/magnetarise",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:geofmigliacci/magnetarise.git"
+  },
+  "license": "MIT",
+  "author": "Geoffrey Migliacci",
+  "type": "commonjs",
+  "devDependencies": {
+    "@citizenfx/client": "^2.0.5677-1",
+    "@types/jest": "^28.1.3",
+    "@types/node": "^18.0.0"
+  },
+  "dependencies": {
+    "ci": "^2.2.0",
+    "iterare": "^1.2.1",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.7.0"
+  }
+}

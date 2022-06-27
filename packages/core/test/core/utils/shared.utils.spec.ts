@@ -9,7 +9,7 @@ import {
     isString,
     isSymbol,
     isUndefined,
-} from '../../../../src/utils';
+} from '../../../src/utils';
 
 function Foo(a) {
     this.a = 1;

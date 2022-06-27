@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { SetMetadata } from "../../../../src/decorators";
+import { SetMetadata } from "../../../src/decorators";
 
 describe('@SetMetadata', () => {
     const key = 'key', value = 'value';

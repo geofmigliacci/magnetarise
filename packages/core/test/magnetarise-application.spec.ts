@@ -1,10 +1,10 @@
 import "reflect-metadata";
-import { ExecutionContext } from "../contexts";
-import { Controller, Event, Injectable, Magnetarise, NetEvent, RegisterCommand, SetMetadata, Tick, UseGuards, UsePipes } from "../decorators";
-import { CanActivate, PipeTransform } from "../interfaces";
-import { Reflector } from "../services";
-import { BeforeControllerInit, AfterControllerInit, OnApplicationBootstrap } from "../hooks";
-import { MagnetariseApplication } from "../magnetarise-application";
+import { ExecutionContext } from "../src/contexts";
+import { Controller, Event, Injectable, Magnetarise, NetEvent, RegisterCommand, SetMetadata, Tick, UseGuards, UsePipes } from "../src/decorators";
+import { CanActivate, PipeTransform } from "../src/interfaces";
+import { Reflector } from "../src/services";
+import { BeforeControllerInit, AfterControllerInit, OnApplicationBootstrap } from "../src/hooks";
+import { MagnetariseApplication } from "../src/magnetarise-application";
 
 describe('MagnetariseApplication', () => {
     class IsTrue implements CanActivate {

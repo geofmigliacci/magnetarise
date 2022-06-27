@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { EventRegistrar } from "packages/core/src/services";
+import { EventRegistrar } from "../../../src/services";
 
 describe('Reflector', () => {
     const globals: any = global;

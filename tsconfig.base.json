@@ -8,18 +8,10 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "lib": [
-      "es2016",
-      "dom"
-    ],
+    "lib": ["es2016", "dom"],
     "paths": {
-      "@magnetarise/core": [
-        "packages/core/src/index.ts"
-      ]
+      "@magnetarise/core": ["packages/core/src/index.ts"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

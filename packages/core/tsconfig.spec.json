@@ -4,7 +4,6 @@
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
     "types": [
-      "reflect-metadata",
       "@types/node",
       "@citizenfx/client",
       "@types/jest"

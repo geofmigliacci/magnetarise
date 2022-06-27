@@ -1,16 +1,14 @@
-import { ExecutionContext } from "../../../../src/contexts";
+import { ExecutionContext } from './execution-context.interface';
 
 describe('ExecutionContextHost', () => {
   let contextHost: ExecutionContext;
 
-  const args = ['eventName', 1, 'test', 'test2', 'test3'], constructorRef = { test: 'test' }, callback = () => null;
+  const args = ['eventName', 1, 'test', 'test2', 'test3'],
+    constructorRef = { test: 'test' },
+    callback = () => null;
 
   beforeEach(() => {
-    contextHost = new ExecutionContext(
-      args,
-      constructorRef as any,
-      callback,
-    );
+    contextHost = new ExecutionContext(args, constructorRef as any, callback);
   });
 
   describe('getEventName', () => {

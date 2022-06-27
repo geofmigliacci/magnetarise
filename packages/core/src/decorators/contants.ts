@@ -1,5 +1,5 @@
 export const INJECTABLES_METADATA = '__injectable__';
-export const PULSY_METADATA = '__magnetarise__';
+export const MAGNETARISE_METADATA = '__magnetarise__';
 export const CONTROLLERS_METADATA = '__controller__';
 export const GUARDS_METADATA = '__guard__';
 export const NET_EVENTS_METADATA = '__net_event__';

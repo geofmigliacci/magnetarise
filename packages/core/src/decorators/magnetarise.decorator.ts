@@ -1,13 +1,11 @@
-import { PULSY_METADATA } from "./contants";
-import { setMetadata } from "../utils";
-import { MagnetariseConfiguration } from "../interfaces/decorators";
+import { MAGNETARISE_METADATA } from './contants';
+import { setMetadata } from '../utils';
+import { MagnetariseConfiguration } from '../interfaces/decorators';
 
 export function Magnetarise(
-    magnetarise: MagnetariseConfiguration
+  magnetarise: MagnetariseConfiguration
 ): ClassDecorator {
-    return (
-        target: any
-    ): void => {
-        setMetadata(PULSY_METADATA, magnetarise, target);
-    };
+  return (target: any): void => {
+    setMetadata(MAGNETARISE_METADATA, magnetarise, target);
+  };
 }

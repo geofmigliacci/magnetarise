@@ -1,4 +1,4 @@
 export interface MagnetariseConfiguration {
-    controllers: any[];
-    providers?: any[];
+  controllers: any[];
+  providers?: any[];
 }

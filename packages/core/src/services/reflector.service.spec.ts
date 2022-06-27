@@ -1,10 +1,9 @@
-import "reflect-metadata";
-import { Reflector } from "../../../../src/services";
+import { Reflector } from './reflector.service';
 
 describe('Reflector', () => {
   let reflector: Reflector;
 
-  class Test { }
+  class Test {}
 
   beforeEach(() => {
     reflector = new Reflector();

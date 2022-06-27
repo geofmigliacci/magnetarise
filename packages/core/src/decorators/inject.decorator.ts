@@ -1,3 +1,3 @@
-import { inject } from "tsyringe";
+import { inject } from 'tsyringe';
 
 export const Inject = inject;

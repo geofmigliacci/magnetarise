@@ -1,3 +1,3 @@
 export interface BeforeControllerInit {
-    beforeControllerInit(): Promise<void> | void;
+  beforeControllerInit(): Promise<void> | void;
 }

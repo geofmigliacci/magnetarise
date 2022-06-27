@@ -1,4 +1,4 @@
 export interface RegisterCommandMetadata {
-    commandName: string;
-    restricted: boolean;
+  commandName: string;
+  restricted: boolean;
 }

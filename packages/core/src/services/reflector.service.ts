@@ -1,6 +1,6 @@
-import { isEmpty, isObject } from "../utils";
-import { Injectable } from "../decorators";
-import { Type } from "../types";
+import { isEmpty, isObject } from '../utils';
+import { Injectable } from '../decorators';
+import { Type } from '../types';
 
 @Injectable()
 export class Reflector {
@@ -15,7 +15,7 @@ export class Reflector {
    */
   get<TResult = any, TKey = any>(
     metadataKey: TKey,
-    target: Type<any> | Function,
+    target: Type<any> | Function
   ): TResult {
     return Reflect.getMetadata(metadataKey, target) as TResult;
   }
@@ -28,10 +28,10 @@ export class Reflector {
    */
   getAll<TResult extends any[] = any[], TKey = any>(
     metadataKey: TKey,
-    targets: (Type<any> | Function)[],
+    targets: (Type<any> | Function)[]
   ): TResult {
-    return (targets || []).map(target =>
-      Reflect.getMetadata(metadataKey, target),
+    return (targets || []).map((target) =>
+      Reflect.getMetadata(metadataKey, target)
     ) as TResult;
   }
 
@@ -43,12 +43,12 @@ export class Reflector {
    */
   getAllAndMerge<TResult extends any[] = any[], TKey = any>(
     metadataKey: TKey,
-    targets: (Type<any> | Function)[],
+    targets: (Type<any> | Function)[]
   ): TResult {
     const metadataCollection = this.getAll<TResult, TKey>(
       metadataKey,
-      targets,
-    ).filter(item => item !== undefined);
+      targets
+    ).filter((item) => item !== undefined);
 
     if (isEmpty(metadataCollection)) {
       return metadataCollection as TResult;
@@ -75,10 +75,10 @@ export class Reflector {
    */
   getAllAndOverride<TResult = any, TKey = any>(
     metadataKey: TKey,
-    targets: (Type<any> | Function)[],
+    targets: (Type<any> | Function)[]
   ): TResult {
     const metadataCollection = this.getAll(metadataKey, targets).filter(
-      item => item !== undefined,
+      (item) => item !== undefined
     );
     return metadataCollection[0];
   }

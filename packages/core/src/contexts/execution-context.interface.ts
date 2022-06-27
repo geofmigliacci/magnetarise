@@ -1,11 +1,11 @@
-import { Type } from "../types/type.interface";
+import { Type } from '../types/type.interface';
 
 export class ExecutionContext {
   constructor(
     private readonly args: unknown[],
     private readonly constructorRef: Type<any> = null,
-    private readonly handler: Function = null,
-  ) { }
+    private readonly handler: Function = null
+  ) {}
 
   getEventName(): string {
     return this.getArgByIndex<string>(0);

@@ -20,9 +20,8 @@ jobs:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v2
       - run: npm ci
-      - run: npx nx affected --target=lint --parallel=3
-      - run: npx nx affected --target=test --parallel=3 --ci --code-coverage --coverageReporters=lcov
-      - run: npx nx affected --target=build --parallel=3
+      - run: npx nx affected --target=test --parallel=3 --ci --code-coverage --coverageReporters=lcov --all
+      - run: npx nx affected --target=build --parallel=3 --all
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:

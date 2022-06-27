@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { EventEmitter } from "../../../src/services";
+import { EventEmitter } from "../../../../src/services";
 
 describe('Reflector', () => {
     const globals: any = global;

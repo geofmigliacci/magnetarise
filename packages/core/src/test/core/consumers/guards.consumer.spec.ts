@@ -1,7 +1,7 @@
 import "reflect-metadata";
-import { GuardsConsumer } from "../../../src/consumers";
-import { ExecutionContext } from "../../../src/contexts";
-import { CanActivate } from "../../../src/interfaces";
+import { GuardsConsumer } from "../../../../src/consumers";
+import { ExecutionContext } from "../../../../src/contexts";
+import { CanActivate } from "../../../../src/interfaces";
 
 describe('GuardsConsumer', () => {
     class IsTrue implements CanActivate {

@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { MagnetariseContainer } from "packages/core/src/container";
+import { MagnetariseContainer } from "../../../../src/container";
 import { InterceptorsConsumer } from "../../../../src/consumers";
 import { Intercept } from "../../../../src/interfaces";
 

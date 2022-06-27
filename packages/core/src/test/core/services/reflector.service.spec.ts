@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { Reflector } from "../../../src/services";
+import { Reflector } from "../../../../src/services";
 
 describe('Reflector', () => {
   let reflector: Reflector;

@@ -1,9 +1,9 @@
 import 'reflect-metadata';
-import { ExecutionContext } from '../../src/contexts';
-import { UseGuards } from '../../src/decorators';
-import { GUARDS_METADATA } from '../../src/decorators/contants';
-import { CanActivate } from '../../src/interfaces';
-import { MetadataScanner } from '../../src/metadata-scanner';
+import { ExecutionContext } from '../../../src/contexts';
+import { UseGuards } from '../../../src/decorators';
+import { GUARDS_METADATA } from '../../../src/decorators/contants';
+import { CanActivate } from '../../../src/interfaces';
+import { MetadataScanner } from '../../../src/metadata-scanner';
 
 describe('MetadataScanner', () => {
     describe('scanFromPrototype', () => {

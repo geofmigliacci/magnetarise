@@ -19,7 +19,8 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+      - uses: rlespinasse/github-slug-action@v4.x
       - run: npm ci
-      - run: npx nx affected --target=publish --parallel=3 --all --ver=${{ github.ref }} --tag=latest
+      - run: npx nx affected --target=publish --parallel=3 --all --ver=${{ env.GITHUB_REF_SLUG }} --tag=latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

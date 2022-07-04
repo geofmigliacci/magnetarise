@@ -1,11 +1,8 @@
 name: Tests
 
 on:
+  workflow_call:
   push:
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
-    branches:
-      - master
   pull_request:
 
 jobs:

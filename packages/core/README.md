@@ -1,6 +1,6 @@
-[![Version](https://img.shields.io/npm/v/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/Magnetarise/releases)
+[![Version](https://img.shields.io/npm/v/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/magnetarise/releases)
 [![License](https://img.shields.io/badge/License-GNU%20General%20Public%20License%203.0-lightgrey.svg?style=for-the-badge)](LICENSE.md)
-[![Downloads](https://img.shields.io/npm/dw/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/Magnetarise/releases)
+[![Downloads](https://img.shields.io/npm/dw/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/magnetarise/releases)
 
 [![Coverage](https://img.shields.io/sonar/coverage/geofmigliacci_magnetarise?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)](https://sonarcloud.io/dashboard?id=geofmigliacci_magnetarise)
 

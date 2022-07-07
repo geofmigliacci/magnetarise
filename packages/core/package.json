@@ -5,8 +5,17 @@
   "homepage": "https://github.com/geofmigliacci/magnetarise",
   "repository": {
     "type": "git",
-    "url": "git@github.com:geofmigliacci/magnetarise.git"
+    "url": "https://github.com/geofmigliacci/magnetarise.git"
   },
+  "keywords": [
+    "fivem",
+    "five m",
+    "gtav",
+    "gta v",
+    "dependency injection",
+    "decorator",
+    "typescript"
+  ],
   "license": "MIT",
   "author": "Geoffrey Migliacci",
   "devDependencies": {

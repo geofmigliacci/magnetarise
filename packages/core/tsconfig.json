@@ -2,11 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "commonjs",
-    "types": [
-      "reflect-metadata",
-      "@types/node",
-      "@citizenfx/client"
-    ],
+    "types": ["reflect-metadata", "@types/node", "@citizenfx/client"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },

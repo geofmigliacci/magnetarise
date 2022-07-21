@@ -66,7 +66,7 @@ export class MagnetariseApplication {
 
       await this.generateController(controller);
 
-      if (isFunction(controller.beforeControllerInit)) {
+      if (isFunction(controller.afterControllerInit)) {
         await controller.afterControllerInit();
       }
     }

@@ -1,7 +1,7 @@
 import { InterceptorsConsumer } from '../consumers';
 import { Injectable } from '../decorators';
 import { EventCallback } from '../types';
-import { isNativeEvent } from '../utils';
+import { isInteger, isNativeEvent, isNumber, isServer } from '../utils';
 
 @Injectable()
 export class EventEmitter {
@@ -22,14 +22,31 @@ export class EventEmitter {
    * @param eventName eventName to be triggered
    * @param args args that will be passed to the registered callback if there is one
    */
+  async emitNet(eventName: string, target: number, ...args: any[]);
   async emitNet(eventName: string, ...args: any[]): Promise<void> {
-    if (isNativeEvent(eventName)) {
-      emitNet(eventName, ...args);
-    } else {
-      if (InterceptorsConsumer.interceptOut) {
-        args = await InterceptorsConsumer.interceptOut(...args);
+    if (isServer()) {
+      let target = -1;
+      if(args?.length > 0 && isInteger(args[0])) {
+        target = args.shift();
       }
-      emitNet(`Magnetarise:${eventName}`, ...args);
+      
+      if (isNativeEvent(eventName)) {
+        emitNet(eventName, target, ...args);
+      } else {
+        if (InterceptorsConsumer.interceptOut) {
+          args = await InterceptorsConsumer.interceptOut(...args);
+        }
+        emitNet(`Magnetarise:${eventName}`, target, ...args);
+      }
+    } else {
+      if (isNativeEvent(eventName)) {
+        emitNet(eventName, ...args);
+      } else {
+        if (InterceptorsConsumer.interceptOut) {
+          args = await InterceptorsConsumer.interceptOut(...args);
+        }
+        emitNet(`Magnetarise:${eventName}`, ...args);
+      }
     }
   }
 

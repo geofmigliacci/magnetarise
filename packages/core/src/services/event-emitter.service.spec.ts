@@ -1,47 +1,98 @@
 import { EventEmitter } from './event-emitter.service';
 
-describe('Reflector', () => {
-  const globals: any = global;
-  let eventEmitter: EventEmitter;
+describe('EventEmitter', () => {
+  describe('server', () => {
+    const globals: any = global;
+    let eventEmitter: EventEmitter;
 
-  beforeAll(() => {
-    globals.emitNet = jest.fn((eventName: string, ...args: any[]) => {});
-    globals.emit = jest.fn((eventName: string, ...args: any[]) => {});
-  });
-
-  beforeEach(() => {
-    eventEmitter = new EventEmitter();
-  });
-
-  describe('on', () => {
-    it('should register eventName', () => {
-      const spy = jest.spyOn(globals, 'emit');
-      eventEmitter.emit('eventName', 1, 2, 3);
-      expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+    beforeAll(() => {
+      globals.IsDuplicityVersion = jest.fn(() => true);
+      globals.emitNet = jest.fn((eventName: string, ...args: any[]) => {});
+      globals.emit = jest.fn((eventName: string, ...args: any[]) => {});
     });
 
-    it('should register onResourceStop', () => {
-      const spy = jest.spyOn(globals, 'emit');
-      eventEmitter.emit('onResourceStop', 1, 2, 3);
-      expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+    beforeEach(() => {
+      eventEmitter = new EventEmitter();
+    });
+
+    describe('emit', () => {
+      it('should emit eventName', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emit('eventName', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+      });
+
+      it('should emit onResourceStop', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emit('onResourceStop', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+      });
+    });
+
+    describe('emitNet', () => {
+      it('should emitNet eventName', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emitNet('eventName', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+      });
+
+      it('should emitNet onResourceStop', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emitNet('onResourceStop', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+      });
+    });
+
+    afterAll(() => {
+      jest.restoreAllMocks();
     });
   });
 
-  describe('onNet', () => {
-    it('should register eventName', () => {
-      const spy = jest.spyOn(globals, 'emit');
-      eventEmitter.emitNet('eventName', 1, 2, 3);
-      expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+  describe('client', () => {
+    const globals: any = global;
+    let eventEmitter: EventEmitter;
+
+    beforeAll(() => {
+      globals.IsDuplicityVersion = jest.fn(() => false);
+      globals.emitNet = jest.fn((eventName: string, ...args: any[]) => {});
+      globals.emit = jest.fn((eventName: string, ...args: any[]) => {});
     });
 
-    it('should register onResourceStop', () => {
-      const spy = jest.spyOn(globals, 'emit');
-      eventEmitter.emitNet('onResourceStop', 1, 2, 3);
-      expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+    beforeEach(() => {
+      eventEmitter = new EventEmitter();
     });
-  });
 
-  afterAll(() => {
-    jest.restoreAllMocks();
+    describe('emit', () => {
+      it('should emit eventName', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emit('eventName', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+      });
+
+      it('should emit onResourceStop', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emit('onResourceStop', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+      });
+    });
+
+    describe('emitNet', () => {
+      it('should emitNet eventName', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emitNet('eventName', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
+      });
+
+      it('should emitNet onResourceStop', () => {
+        const spy = jest.spyOn(globals, 'emit');
+        eventEmitter.emitNet('onResourceStop', 1, 2, 3);
+        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
+      });
+    });
+
+    afterAll(() => {
+      jest.restoreAllMocks();
+    });
   });
 });
+

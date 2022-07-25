@@ -1,6 +1,6 @@
 import { EventRegistrar } from './event-registrar.service';
 
-describe('Reflector', () => {
+describe('EventRegistrar', () => {
   const globals: any = global;
   let eventRegistrar: EventRegistrar;
 

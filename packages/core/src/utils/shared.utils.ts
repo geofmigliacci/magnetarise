@@ -29,6 +29,7 @@ export const isPlainObject = (fn: any): fn is object => {
 export const isFunction = (val: any): boolean => typeof val === 'function';
 export const isString = (val: any): val is string => typeof val === 'string';
 export const isNumber = (val: any): val is number => typeof val === 'number';
+export const isInteger = (val: any): val is number => typeof val === 'number' && Number.isInteger(val);
 export const isConstructor = (val: any): boolean => val === 'constructor';
 export const isNil = (val: any): val is null | undefined =>
   isUndefined(val) || val === null;
@@ -36,3 +37,4 @@ export const isEmpty = (array: any): boolean => !(array && array.length > 0);
 export const isSymbol = (val: any): val is symbol => typeof val === 'symbol';
 export const isNativeEvent = (eventName: string): boolean =>
   EVENTS.includes(eventName);
+export const isServer = (): boolean => IsDuplicityVersion();

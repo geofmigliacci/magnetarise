@@ -22,7 +22,6 @@ export class EventEmitter {
    * @param eventName eventName to be triggered
    * @param args args that will be passed to the registered callback if there is one
    */
-  async emitNet(eventName: string, target: number, ...args: any[]);
   async emitNet(eventName: string, ...args: any[]): Promise<void> {
     if (isServer()) {
       let target = -1;

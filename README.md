@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/npm/v/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/magnetarise/releases)
+[![Version](https://img.shields.io/npm/v/@magnetarise/core?style=for-the-badge)](https://www.npmjs.com/package/@magnetarise/core)
 [![License](https://img.shields.io/badge/License-GNU%20General%20Public%20License%203.0-lightgrey.svg?style=for-the-badge)](LICENSE.md)
 [![Downloads](https://img.shields.io/npm/dw/@magnetarise/core?style=for-the-badge)](https://github.com/geofmigliacci/magnetarise/releases)
 

@@ -74,10 +74,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@magnetarise/core@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@magnetarise/core/-/core-0.0.4.tgz#fadfbac49eb623fb57912aa5bf77e178cb800b4a"
-  integrity sha512-zpQPfz1zvciE8lKzB8nsPvHtnt527y5Av4/xu1bIz+IKiUZ+mbxSVXolmp1zpBVxz/ouW7ZpB3F3TbDK/Kh5sQ==
+"@magnetarise/core@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@magnetarise/core/-/core-0.0.6.tgz#1a06bfc1eadb521c25a91cb1debf7e504d313838"
+  integrity sha512-feoH6p7tHm3Dzkmk5JOBhNOKClsxYgLzGB8AgJFtZ6039HitoUrRXxSo2umNa+MXDdTqKSF5eRpySgff+DlYxw==
   dependencies:
     iterare "^1.2.1"
     reflect-metadata "^0.1.13"

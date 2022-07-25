@@ -21,21 +21,29 @@ export class CatsController implements OnApplicationBootstrap {
   }
 
   @NetEvent("cats.findAll")
-  private catsFindAll(): void {
-    this.eventEmitter.emitNet("cats.findAll", this.catsService.findAll());
+  private catsFindAll(
+    _eventName: string,
+    source: number,
+  ): void {
+    console.log("I receive a cats.findAll event...");
+
+    this.eventEmitter.emitNet("cats.findAll", source, this.catsService.findAll());
   }
 
 
   @NetEvent("cats.findByName")
   private async catsFindByName(
     _eventName: string,
-    _source: number,
+    source: number,
     name: string
   ): Promise<void> {
-    if (!name) {
+    console.log("Searching a cat with the name : " + name);
+
+    if (!name?.length) {
       return;
     }
-    this.eventEmitter.emitNet("cats.findByName", await this.catsService.findByName(
+    
+    this.eventEmitter.emitNet("cats.findByName", source, await this.catsService.findByName(
       name
     ));
   }

@@ -7,22 +7,22 @@ import { Cat } from "src/sh/interfaces";
 export class CatsService {
     private cats: Cat[] = [
         {
-            name: "Cat 1",
+            name: "George",
             age: 1,
             breed: "Persian",
         },
         {
-            name: "Cat 2",
+            name: "Super",
             age: 2,
             breed: "Siamese",
         },
         {
-            name: "Cat 3",
+            name: "Batman",
             age: 3,
             breed: "Ragdoll",
         },
         {
-            name: "Cat 4",
+            name: "Nice",
             age: 4,
             breed: "Maine",
         },
@@ -42,8 +42,9 @@ export class CatsService {
      * @returns All cats with the given name
      */
     async findByName(name: string): Promise<Cat[]> {
+        const normalizedName = name.toString().toLowerCase();
         return new Promise((resolve) => {
-            resolve(this.cats.filter((cat) => cat.name === name));
+            resolve(this.cats.filter((cat) => normalizedName.indexOf(cat.name.toLowerCase()) !== -1));
         });
     }
 }

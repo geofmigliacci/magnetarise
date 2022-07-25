@@ -15,6 +15,9 @@ export class CatsController implements OnApplicationBootstrap {
 
   }
 
+  /**
+   * Trigger once the application is bootstrapped.
+   */
   onApplicationBootstrap(): void {
     console.log("Cats application bootstrapped!");
     console.log("Here you can load datas into an array or database...");

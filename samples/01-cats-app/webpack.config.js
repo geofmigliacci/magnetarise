@@ -14,9 +14,8 @@ module.exports = [
             path: path.resolve(__dirname, 'dist/sv'),
         },
         externals: {
-            // mysql2: 'commonjs mysql2',
-            // typeorm: 'commonjs typeorm',
-            prisma: 'commonjs prisma',
+            mysql2: 'commonjs mysql2',
+            typeorm: 'commonjs typeorm',
         },
         module: {
             rules: [

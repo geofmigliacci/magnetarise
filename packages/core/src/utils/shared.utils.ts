@@ -39,3 +39,4 @@ export const isNativeEvent = (eventName: string): boolean =>
   EVENTS.includes(eventName);
 export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const isServer = (): boolean => IsDuplicityVersion();
+export const isClient = (): boolean => !isServer();

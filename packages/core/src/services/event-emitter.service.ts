@@ -1,5 +1,6 @@
 import { InterceptorsConsumer } from '../consumers';
 import { Injectable } from '../decorators';
+import { MagnetariseApplication } from '../magnetarise-application';
 import { EventCallback } from '../types';
 import { isInteger, isNativeEvent, isNumber, isServer } from '../utils';
 
@@ -14,6 +15,7 @@ export class EventEmitter {
    * `this.eventEmitter.EmitNet('eventName');`
    * `this.eventEmitter.EmitNet('eventName', 'first argument');`
    * `this.eventEmitter.EmitNet('eventName', 'first argument', 2, 'third argument');`
+   * `this.eventEmitter.EmitNet('eventName', 2, 'third argument');` 2 is the source if used server-side
    *
    * @see {@link EventRegistrar~OnNet} to register an net event
    * @see {@link https://docs.fivem.net/docs/scripting-reference/runtimes/javascript/functions/emitNet-server/}
@@ -23,29 +25,42 @@ export class EventEmitter {
    * @param args args that will be passed to the registered callback if there is one
    */
   async emitNet(eventName: string, ...args: any[]): Promise<void> {
+    if(isNativeEvent(eventName)) {
+      throw new Error('The event name cannot be a native event');
+    }
+
+    if (!args?.length) {
+      args = [];
+    }
+
     if (isServer()) {
-      let target = -1;
-      if(args?.length > 0 && isInteger(args[0])) {
-        target = args.shift();
+      if (!args?.length) {
+        emitNet(`Magnetarise:${eventName}`, -1);
+        return;
       }
-      
-      if (isNativeEvent(eventName)) {
-        emitNet(eventName, target, ...args);
-      } else {
-        if (InterceptorsConsumer.interceptOut) {
-          args = await InterceptorsConsumer.interceptOut(...args);
-        }
-        emitNet(`Magnetarise:${eventName}`, target, ...args);
+
+      let target = args[0];
+      if (!isInteger(target)) {
+        throw new Error('The first argument of emitNet must be an integer on the server');
       }
+
+      args = args.slice(1);
+
+      if (MagnetariseApplication.hasInterceptors()) {
+        args = await InterceptorsConsumer.interceptOut(...args);
+      }
+
+      emitNet(`Magnetarise:${eventName}`, target, ...args);
     } else {
-      if (isNativeEvent(eventName)) {
-        emitNet(eventName, ...args);
-      } else {
-        if (InterceptorsConsumer.interceptOut) {
-          args = await InterceptorsConsumer.interceptOut(...args);
-        }
-        emitNet(`Magnetarise:${eventName}`, ...args);
+      if (!args?.length) {
+        emitNet(`Magnetarise:${eventName}`);
       }
+
+      if (MagnetariseApplication.hasInterceptors()) {
+        args = await InterceptorsConsumer.interceptOut(...args);
+      }
+
+      emitNet(`Magnetarise:${eventName}`, ...args);
     }
   }
 
@@ -65,13 +80,9 @@ export class EventEmitter {
    * @param args args that will be passed to the registered callback if there is one
    */
   async emit(eventName: string, ...args: any[]): Promise<void> {
-    if (isNativeEvent(eventName)) {
-      emit(eventName, ...args);
-    } else {
-      if (InterceptorsConsumer.interceptOut) {
-        args = await InterceptorsConsumer.interceptOut(...args);
-      }
-      emit(`Magnetarise:${eventName}`, ...args);
+    if (InterceptorsConsumer.interceptOut) {
+      args = await InterceptorsConsumer.interceptOut(...args);
     }
+    emit(`Magnetarise:${eventName}`, ...args);
   }
 }

@@ -203,4 +203,16 @@ export class MagnetariseApplication {
       }
     }
   }
+
+  static hasInterceptIn(): boolean {
+    return !!InterceptorsConsumer.interceptIn;
+  }
+
+  static hasInterceptOut(): boolean {
+    return !!InterceptorsConsumer.interceptIn;
+  }
+
+  static hasInterceptors(): boolean {
+    return MagnetariseApplication.hasInterceptIn() || MagnetariseApplication.hasInterceptOut();
+  }
 }

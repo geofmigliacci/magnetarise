@@ -21,12 +21,6 @@ describe('EventEmitter', () => {
         eventEmitter.emit('eventName', 1, 2, 3);
         expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
       });
-
-      it('should emit onResourceStop', () => {
-        const spy = jest.spyOn(globals, 'emit');
-        eventEmitter.emit('onResourceStop', 1, 2, 3);
-        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
-      });
     });
 
     describe('emitNet', () => {
@@ -34,12 +28,6 @@ describe('EventEmitter', () => {
         const spy = jest.spyOn(globals, 'emit');
         eventEmitter.emitNet('eventName', 1, 2, 3);
         expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
-      });
-
-      it('should emitNet onResourceStop', () => {
-        const spy = jest.spyOn(globals, 'emit');
-        eventEmitter.emitNet('onResourceStop', 1, 2, 3);
-        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
       });
     });
 
@@ -68,12 +56,6 @@ describe('EventEmitter', () => {
         eventEmitter.emit('eventName', 1, 2, 3);
         expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
       });
-
-      it('should emit onResourceStop', () => {
-        const spy = jest.spyOn(globals, 'emit');
-        eventEmitter.emit('onResourceStop', 1, 2, 3);
-        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
-      });
     });
 
     describe('emitNet', () => {
@@ -81,12 +63,6 @@ describe('EventEmitter', () => {
         const spy = jest.spyOn(globals, 'emit');
         eventEmitter.emitNet('eventName', 1, 2, 3);
         expect(spy).toHaveBeenCalledWith('Magnetarise:eventName', 1, 2, 3);
-      });
-
-      it('should emitNet onResourceStop', () => {
-        const spy = jest.spyOn(globals, 'emit');
-        eventEmitter.emitNet('onResourceStop', 1, 2, 3);
-        expect(spy).toHaveBeenCalledWith('onResourceStop', 1, 2, 3);
       });
     });
 

@@ -37,4 +37,5 @@ export const isEmpty = (array: any): boolean => !(array && array.length > 0);
 export const isSymbol = (val: any): val is symbol => typeof val === 'symbol';
 export const isNativeEvent = (eventName: string): boolean =>
   EVENTS.includes(eventName);
+export const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 export const isServer = (): boolean => IsDuplicityVersion();

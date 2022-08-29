@@ -2,7 +2,7 @@ import { InterceptorsConsumer } from '../consumers';
 import { Injectable } from '../decorators';
 import { MagnetariseApplication } from '../magnetarise-application';
 import { EventCallback } from '../types';
-import { isInteger, isNativeEvent, isNumber, isServer } from '../utils';
+import { isInteger, isNativeEvent, isServer } from '../utils';
 
 @Injectable()
 export class EventEmitter {

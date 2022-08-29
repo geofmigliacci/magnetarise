@@ -19,7 +19,7 @@ export function extendMapMetadata<K, V extends Array<unknown>>(
   const previousValue: Map<K, V> =
     Reflect.getMetadata(key, target) || new Map<K, V>();
   if (!previousValue.has(mapKey)) {
-    const value = previousValue.set(mapKey, metadata as V);
+    const value = previousValue.set(mapKey, metadata);
     Reflect.defineMetadata(key, value, target);
   } else {
     const previousValues = previousValue.get(mapKey);

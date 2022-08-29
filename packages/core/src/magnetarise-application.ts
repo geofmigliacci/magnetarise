@@ -5,6 +5,7 @@ import {
   NET_EVENTS_METADATA,
   PIPES_METADATA,
   REGISTERS_COMMANDS_METADATA,
+  REGISTERS_NUI_CALLBACK_METADATA,
   TICKS_METADATA,
 } from './decorators/contants';
 import { RegisterCommandMetadata } from './interfaces/decorators';
@@ -24,7 +25,7 @@ import iterate from 'iterare';
 export class MagnetariseApplication {
   private static instance: MagnetariseApplication;
 
-  private constructor() {}
+  private constructor() { }
 
   /**
    * Create an instance of MagnetariseApplication
@@ -161,6 +162,37 @@ export class MagnetariseApplication {
 
             await controller[methodName](...executionContext.getArgs());
           });
+        }
+      }
+
+      const nuiCallbacks = MetadataScanner.getMethodMetadata<string[]>(
+        REGISTERS_NUI_CALLBACK_METADATA,
+        controller,
+        methodName
+      );
+      if (nuiCallbacks) {
+        for (const nuiCallback of nuiCallbacks) {
+          RegisterRawNuiCallback(nuiCallback, async (...args: any[]) => {
+            if (InterceptorsConsumer.interceptIn) {
+              args = await InterceptorsConsumer.interceptIn(...args);
+            }
+
+            let executionContext = new ExecutionContext(
+              [nuiCallback, source || -1, ...args],
+              controller,
+              controller[methodName]
+            );
+
+            if (guardsMetadata && !(await guardFn(executionContext))) {
+              return;
+            }
+
+            if (pipesMetada) {
+              executionContext = await pipeFn(executionContext);
+            }
+
+            await controller[methodName](...executionContext.getArgs());
+          })
         }
       }
 

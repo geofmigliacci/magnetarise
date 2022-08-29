@@ -7,3 +7,4 @@ export const EVENTS_METADATA = '__event__';
 export const TICKS_METADATA = '__tick__';
 export const PIPES_METADATA = '__pipe__';
 export const REGISTERS_COMMANDS_METADATA = '__register_command__';
+export const REGISTERS_NUI_CALLBACK_METADATA = '__register_nui_callback__';

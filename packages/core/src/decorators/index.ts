@@ -9,3 +9,4 @@ export * from './tick.decorator';
 export * from './use-pipes.decorator';
 export * from './register-command.decorator';
 export * from './set-metadata.decorator';
+export * from './register-nui-callback.decorator';

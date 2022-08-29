@@ -9,14 +9,14 @@ import {
   TICKS_METADATA,
 } from './decorators/contants';
 import { RegisterCommandMetadata } from './interfaces/decorators';
-import { EventRegistrar } from './services';
+import { EventRegistrar, NuiRegistrar } from './services';
 import { ExecutionContext } from './contexts';
 import {
   GuardsConsumer,
   InterceptorsConsumer,
   PipesConsumer,
 } from './consumers';
-import { Controller, Interceptor, Type } from './types';
+import { Controller, Interceptor, NuiCallback, Type } from './types';
 import { MetadataScanner } from './metadata-scanner';
 import { InjectionToken } from 'tsyringe';
 import { isFunction, isNativeEvent } from './utils';
@@ -84,6 +84,8 @@ export class MagnetariseApplication {
   private async generateController(controller: Controller) {
     const eventRegistrar =
       MagnetariseContainer.container.resolve(EventRegistrar);
+    const nuiRegistrar =
+      MagnetariseContainer.container.resolve(NuiRegistrar);
 
     for (const methodName of MetadataScanner.getMethodNames(controller)) {
       const classMetadata = MetadataScanner.getClassMetadata<InjectionToken[]>(
@@ -172,27 +174,7 @@ export class MagnetariseApplication {
       );
       if (nuiCallbacks) {
         for (const nuiCallback of nuiCallbacks) {
-          RegisterRawNuiCallback(nuiCallback, async (...args: any[]) => {
-            if (InterceptorsConsumer.interceptIn) {
-              args = await InterceptorsConsumer.interceptIn(...args);
-            }
-
-            let executionContext = new ExecutionContext(
-              [nuiCallback, source || -1, ...args],
-              controller,
-              controller[methodName]
-            );
-
-            if (guardsMetadata && !(await guardFn(executionContext))) {
-              return;
-            }
-
-            if (pipesMetada) {
-              executionContext = await pipeFn(executionContext);
-            }
-
-            await controller[methodName](...executionContext.getArgs());
-          })
+          nuiRegistrar.on(nuiCallback, controller[methodName].bind(controller));
         }
       }
 

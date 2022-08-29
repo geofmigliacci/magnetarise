@@ -16,7 +16,7 @@ import {
   InterceptorsConsumer,
   PipesConsumer,
 } from './consumers';
-import { Controller, Interceptor, NuiCallback, Type } from './types';
+import { Controller, Interceptor, Type } from './types';
 import { MetadataScanner } from './metadata-scanner';
 import { InjectionToken } from 'tsyringe';
 import { isFunction, isNativeEvent } from './utils';
@@ -37,9 +37,7 @@ export class MagnetariseApplication {
       MagnetariseApplication.instance = new MagnetariseApplication();
     }
 
-    return new Promise((resolve) => {
-      resolve(MagnetariseApplication.instance);
-    });
+    return Promise.resolve(MagnetariseApplication.instance);
   }
 
   /**

@@ -1,7 +1,7 @@
 import { REGISTERS_NUI_CALLBACK_METADATA } from './contants';
 import { extendArrayMetadata } from '../utils';
 
-export function RegiserNuiCallBack(callbackName: string): MethodDecorator {
+export function RegisterNuiCallBack(callbackName: string): MethodDecorator {
   return (
     target: any,
     key?: string | symbol,

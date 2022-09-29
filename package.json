@@ -1,51 +1,46 @@
 {
   "name": "@magnetarise/core",
   "version": "0.0.10",
-  "description": "Magnetarise is a micro-framework made for FiveM heavily influenced by Nest.",
-  "homepage": "https://github.com/geofmigliacci/magnetarise",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/geofmigliacci/magnetarise.git"
-  },
-  "keywords": [
-    "fivem",
-    "five m",
-    "gtav",
-    "gta v",
-    "dependency injection",
-    "decorator",
-    "typescript"
+  "description": "Magnetarise is a micro-framework made for FiveM heavily influenced by Nest",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "packages/samples/*"
   ],
   "license": "MIT",
-  "author": "Geoffrey Migliacci",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/geofmigliacci/magnetarise"
+  },
+  "homepage": "https://github.com/geofmigliacci/magnetarise",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "build": "lerna run build --no-private",
+    "format": "prettier --write \"packages/**/*.ts\" --ignore-path .gitignore",
+    "prepublish:release": "npm run build",
+    "postinstall": "npm run build",
+    "publish:release": "lerna publish -m \"chore: Publish release\" --no-private --conventional-commits --create-release github",
+    "publish:beta": "lerna publish --canary --preid beta -m \"chore: Publish beta release\" --no-private",
+    "lint": "eslint \"packages/{common,core}/src/**/*.ts\"",
+    "lint:fix": "eslint \"packages/{common,core}/src/**/*.ts\" --fix",
+    "prepare": "husky install",
+    "check-updates": "npx npm-check-updates --deep",
+    "update": "npx npm-check-updates --deep -u"
+  },
   "devDependencies": {
-    "@citizenfx/client": "^2.0.5688-1",
-    "@nrwl/cli": "14.3.6",
-    "@nrwl/eslint-plugin-nx": "14.3.6",
-    "@nrwl/jest": "14.3.6",
-    "@nrwl/js": "14.3.6",
-    "@nrwl/linter": "14.3.6",
-    "@nrwl/workspace": "14.3.6",
-    "@types/jest": "27.4.1",
-    "@types/node": "^16.11.7",
-    "@typescript-eslint/eslint-plugin": "~5.24.0",
-    "@typescript-eslint/parser": "~5.24.0",
-    "eslint": "~8.15.0",
-    "eslint-config-prettier": "8.1.0",
-    "jest": "27.5.1",
-    "nx": "14.3.6",
-    "prettier": "^2.6.2",
-    "ts-jest": "27.1.4",
-    "ts-node": "~10.8.0",
-    "typescript": "~4.7.2"
+    "@trivago/prettier-plugin-sort-imports": "3.3.0",
+    "@typescript-eslint/eslint-plugin": "5.38.1",
+    "@typescript-eslint/parser": "5.38.1",
+    "eslint": "8.24.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "husky": "8.0.1",
+    "lerna": "^5.5.4"
   },
-  "dependencies": {
-    "iterare": "^1.2.1",
-    "reflect-metadata": "^0.1.13",
-    "tslib": "^2.3.0",
-    "tsyringe": "^4.7.0"
-  },
-  "files": [
-    "src"
-  ]
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write"
+    ]
+  }
 }

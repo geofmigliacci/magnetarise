@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2016",
+    "sourceMap": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true
+  }
+}

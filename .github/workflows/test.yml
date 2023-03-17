@@ -1,0 +1,46 @@
+name: Test
+
+on:
+  workflow_call:
+    secrets:
+      SONAR_TOKEN:
+        required: true
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        node: [16.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: npx nx run-many --target=lint --parallel=3 --all
+
+      - name: Test
+        run: npx nx run-many --target=test --parallel=3 --code-coverage --coverageReporters=lcov --all
+
+      - name: Build
+        run: npx nx run-many --target=build --parallel=3 --all
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

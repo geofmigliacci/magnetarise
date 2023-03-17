@@ -1,51 +1,38 @@
 {
-  "name": "@magnetarise/core",
-  "version": "0.0.10",
-  "description": "Magnetarise is a micro-framework made for FiveM heavily influenced by Nest.",
-  "homepage": "https://github.com/geofmigliacci/magnetarise",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/geofmigliacci/magnetarise.git"
-  },
-  "keywords": [
-    "fivem",
-    "five m",
-    "gtav",
-    "gta v",
-    "dependency injection",
-    "decorator",
-    "typescript"
-  ],
+  "name": "magnetarise",
+  "version": "0.0.0",
   "license": "MIT",
-  "author": "Geoffrey Migliacci",
+  "scripts": {},
+  "private": true,
+  "dependencies": {
+    "@citizenfx/client": "2.0.6335-1",
+    "@citizenfx/server": "2.0.6335-1",
+    "@swc/helpers": "~0.4.11",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.3.0"
+  },
   "devDependencies": {
-    "@citizenfx/client": "^2.0.5688-1",
-    "@nrwl/cli": "14.3.6",
-    "@nrwl/eslint-plugin-nx": "14.3.6",
-    "@nrwl/jest": "14.3.6",
-    "@nrwl/js": "14.3.6",
-    "@nrwl/linter": "14.3.6",
-    "@nrwl/workspace": "14.3.6",
-    "@types/jest": "27.4.1",
-    "@types/node": "^16.11.7",
-    "@typescript-eslint/eslint-plugin": "~5.24.0",
-    "@typescript-eslint/parser": "~5.24.0",
+    "@nrwl/eslint-plugin-nx": "15.8.6",
+    "@nrwl/jest": "15.8.6",
+    "@nrwl/js": "15.8.6",
+    "@nrwl/linter": "15.8.6",
+    "@nrwl/workspace": "15.8.6",
+    "@swc/cli": "~0.1.55",
+    "@swc/core": "^1.2.173",
+    "@swc/jest": "0.2.20",
+    "@types/jest": "^29.4.0",
+    "@types/node": "16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
-    "jest": "27.5.1",
-    "nx": "14.3.6",
+    "jest": "^29.4.1",
+    "jest-environment-jsdom": "^29.4.1",
+    "jest-environment-node": "^29.4.1",
+    "nx": "15.8.6",
     "prettier": "^2.6.2",
-    "ts-jest": "27.1.4",
-    "ts-node": "~10.8.0",
-    "typescript": "~4.7.2"
-  },
-  "dependencies": {
-    "iterare": "^1.2.1",
-    "reflect-metadata": "^0.1.13",
-    "tslib": "^2.3.0",
-    "tsyringe": "^4.7.0"
-  },
-  "files": [
-    "src"
-  ]
+    "ts-jest": "^29.0.5",
+    "ts-node": "10.9.1",
+    "typescript": "~4.9.5"
+  }
 }

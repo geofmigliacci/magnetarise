@@ -2,15 +2,21 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
-    "baseUrl": ".",
-    "module": "commonjs",
-    "target": "es2016",
-    "declaration": true,
-    "declarationMap": true,
     "sourceMap": true,
-    "lib": ["es2016", "dom"],
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "@magnetarise/core": ["packages/core/src/index.ts"]
+      "@magnetarise/client": ["packages/client/src/index.ts"],
+      "@magnetarise/server": ["packages/server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

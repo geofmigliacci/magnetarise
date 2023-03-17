@@ -26,9 +26,9 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
-
-      - name: Install dependencies
-        run: pnpm install
+        with:
+          version: 7
+          run_install: true
 
       - name: Lint
         run: npx nx run-many --target=lint --parallel=3 --all
